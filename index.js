@@ -35,7 +35,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 function handleEvent(event) {
 	
 	let command = map.get(event.message.text)
-	if(command == null) return
+	if(command == null) return Promise.resolve(null);
 
 	try{
 		command.execute(client, event)

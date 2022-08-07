@@ -6,6 +6,7 @@ let arr = [], arr2 = [];
 
 module.exports = {
     name: 'pick_picture',
+
     description: '挑圖片',
     trigger : '抽圖片',
     async execute(client , event) {
@@ -19,6 +20,12 @@ module.exports = {
         
     }
 };
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
 
 
 const firebaseConfig = {
@@ -39,9 +46,6 @@ const storage = getStorage(app)
 let root = 'gs://line-bot-32513.appspot.com'
 const listRef = ref(storage, root);
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
   
 
 async function getURL() {
