@@ -11,8 +11,6 @@ var config = {
 const client = new line.Client(config);
 
 
-
-
 const {readdirSync} = require('fs');
 let map = new Map();
 
@@ -21,7 +19,6 @@ readdirSync('./commands/').forEach(dir => {
     let pull = require(`./commands/${dir}`)
     map.set(pull.trigger, pull);
 })
-
 
 
 
@@ -45,6 +42,7 @@ function handleEvent(event) {
 	}
 	catch(error){
 		console.log(error)
+		return Promise.resolve(null);
 	}
 }
 
